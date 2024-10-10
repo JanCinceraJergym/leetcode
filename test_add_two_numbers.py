@@ -8,11 +8,12 @@ def gen_linked_list(n: int) -> Optional[ListNode]:
     root = node
     while rem > 0:
         node.val = rem % 10
-        node.next = ListNode()
-        print(node)
-        node = node.next
+        if rem > 10:
+            node.next = ListNode()
+            node = node.next
+        else:
+            node.next = None
         rem //= 10
-    node.next = None
     return root
 
 def test1():
