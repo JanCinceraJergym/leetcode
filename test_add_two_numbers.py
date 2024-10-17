@@ -17,4 +17,8 @@ def gen_linked_list(n: int) -> Optional[ListNode]:
     return root
 
 def test1():
+    assert gen_linked_list(14) == gen_linked_list(14)
+def test2():
     assert sol.addTwoNumbers(gen_linked_list(342), gen_linked_list(465)) == gen_linked_list(807)
+def test3():
+    assert sol.addTwoNumbers(gen_linked_list(9999999), gen_linked_list(9999)) == gen_linked_list(10009998)

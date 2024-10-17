@@ -2,21 +2,27 @@ from lc import *
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        def get_list_length(l: Optional[ListNode]):
-            if l == None:
-                return 0
+        def list_to_int(l: ListNode) -> int:
+            res = 0
+            i = 0
             cl = l
-            print(l)
-            # A A A -
-            length = 1
-            while True:
+            while cl is not None:
+                res += cl.val * 10**i
+                i+=1
                 cl = cl.next
-                if cl == None:
-                    return length
-                length+=1
-        
-        l1_len = get_list_length(l1)
-        l2_len = get_list_length(l2)
-        print(l1_len)
-        print(l2_len)
+            return res
+
+        rem = list_to_int(l1) + list_to_int(l2)
+        print(rem)
+        node = ListNode()
+        root = node
+        while rem > 0:
+            node.val = rem % 10
+            if rem > 10:
+                node.next = ListNode()
+                node = node.next
+            else:
+                node.next = None
+            rem //= 10
+        return root
 
