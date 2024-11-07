@@ -24,8 +24,6 @@ class ListNode:
     def __eq__(self, other: Self):
         cl1 = self
         cl2 = other
-        print(f"cl1: {cl1}")
-        print(f"cl2: {cl2}")
         if cl1 is None and cl2 is None:
             return True
         while cl1 is not None:
